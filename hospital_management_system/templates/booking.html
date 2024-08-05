@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title%} 
+Booking
+{% endblock %}
+
+
+{% block content%}
+
+{% if user.is_authenticated %}
+<p class="text-center bg-light" style="font-size:34px ">Make An Appointment<p>
+<hr>
+<div class="container text-center   borde -1 bg-light roundd-5 form-control booking-container" style=" height:400px; width:auto; background-color:skybluse;">
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+<br>
+    <button class="btn btn-primary border border-primary rounded- booking-button"type = "Submit">Submit</button>
+    <hr>
+</form>
+</div>
+{% else %}
+<div class="container text-center">
+<div class="alert alert-info" role="alert">
+<p class="f-5 booking" >Please <a class="" style="text-decoration:none;"href ="{% url 'login' %}">Log in</a> to make an appointment. <p> </div>
+</div>
+    {% endif %}
+{% endblock %}
+

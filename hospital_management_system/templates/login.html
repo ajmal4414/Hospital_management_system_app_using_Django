@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title%}
+    Login
+{% endblock%}
+
+{% block content %}
+<p class="text-center fw-medium head1" style="font-size:34px; color:grey;">Login</p>
+<hr>
+<div class="container text-center border rounded-5 form-group form" >
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <br>
+
+<div class="form-group">
+<input class="border-1 bg-light rounded-5 form-control" type = "text" name="username" placeholder="Username"/><br></div>
+<div class="form-group">
+<input class="border-1 bg-light rounded-5 form-control" type="password" name="password" placeholder="Password"/><br><br><br><br></div>
+<button class="border-1 bg-primary rountext-white btn btn-primary btn-submit" type="Submit" >Submit</button>
+<hr>
+</form>
+</div>
+
+<div id="messages"> 
+    {% for message in messages %}
+    <p style="display:none;">{{ message }}</p>
+        {% endfor %} 
+</div>
+<script>
+
+    const messages= document.querySelectorAll('#messages p');
+    messages.forEach(message=>{
+        alert(message.innerText);
+    });
+</script>
+{% endblock content %}

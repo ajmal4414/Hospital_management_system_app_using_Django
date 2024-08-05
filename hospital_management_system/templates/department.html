@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title%} 
+Departments
+{% endblock %}
+
+
+{% block content%}
+<div class=" container-fluid text-center  mx-auto w-50  my-4 mx-5 border-3 border-info rounded-5">
+    
+<p class=" text-center fw-medium" style="color:grey;font-size:40px;">Medical Departments</p></div>
+<hr>
+{% for d in dept %}
+<div class="text-center border-1 bg-light rounded-5 mx-auto w-50 my-4   text-whitee p-3 my-4 fw-medium" style="">
+    <p style="font-size:35px; color:grey;">{{d.dep_name}}</p>
+    <p class="text-center" style="color:grey; font-size:18px;">{{d.dep_description}}</p>
+</div>
+   
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title%} 
+Contact
+{% endblock %}
+
+{% load crispy_forms_tags%}
+{% block content%}
+
+<p class="text-center fs-1 bg-light fw-medium" style="color:grey;">Contact Us</p>
+<hr>
+<div class=" container text-center m-autoo p-4  border- bg-light  w-25 h-25 border border-1  border rounded-3 form-contro contactform" style="background-color:skyblu;">
+<form  class="border-bg-light borounded-4"method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+   
+    <button class="btn btn-primary btn btn rouned-5 contact-btn" type="Submit">Submit</button>
+  <hr>
+</form>
+</div>
+{% endblock %}

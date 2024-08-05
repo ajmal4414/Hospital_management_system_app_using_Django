@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{%block title%} 
+    Signup
+{% endblock %}
+
+{% block content%}
+
+<p class="text-center fw-medium" style="font-size:35px; color:grey;">Signup</p>
+<hr>
+
+
+<div class="container text-center  register-container">
+ <div class="  p-4 border-2  rounded-5 form-group border-1 bg-light rounded-5 " style="heiht:20px;">  
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        {{form|crispy}}
+
+            <div class="form-group">
+        <input  class="form-control border-1 rounded-5" type="text" name="first_name" placeholder="Firstname"/><br></div>
+       
+        <div class="form-group">
+        <input class="form-control border-1  rounded-5" type="text" name="last_name" placeholder="Lastname"/><br> </div>
+        <div class="form-group">
+        <input class="form-control border-1 rounded-5" type="text" name="username" placeholder="Username"/><br></div>
+        <div class="form-group">
+        <input class="form-control border-1 rounded-5" type="email" name="email" placeholder="Email"/><br></div>
+        <div class="form-group">
+        <input class="form-control border-1 rounded-5" type="password" name="password" placeholder="Password"/><br></div>
+        <div class="form-group">
+        <input class="form-control border-1 rounded-5" type="password" name="confirm_password" placeholder="Confirm Password"/>
+        </div>
+
+<br>
+<button class="btn btn-primary  border-primaryregister-btn" type="Submit" >Submit</button>
+<br>
+<a  class="fw-bold"style="text-decoration:none;" href="login"  style="text">Already have an account</a>
+<hr>
+</form>
+</div> 
+</div>
+
+<div>{% for message in messages%}
+       <h1> {{message}}</h1>
+        {% endfor %}
+</div>
+
+{% endblock content%}
